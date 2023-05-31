@@ -18,10 +18,7 @@ export class CitaService {
   }
 
   crearCita(cita: Cita, idEmpleado: any): Observable<Object> {
-    console.log(cita.fecha);
-    const fechaISO = cita.fecha.toISOString(); 
-
-    cita.fecha = new Date(fechaISO); 
+    
 
     return this.httpClient.post(`${this.baseURL}/${idEmpleado}`, cita);
 

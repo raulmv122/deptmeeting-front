@@ -28,4 +28,8 @@ export class ListarCitasComponent {
     this.router.navigate(['crear-cita']);
   }
 
+  updateCita(id:number){
+    this.router.navigate(['actualizar-cita',id]);
+  }
+
 }

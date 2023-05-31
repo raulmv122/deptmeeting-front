@@ -1,7 +1,8 @@
 import { Empleado } from "./empleado";
 
 export class Cita {
-    fecha: Date;
+    id: number;
+    fecha: string;
     hora: string;
     empleado: Empleado;
     

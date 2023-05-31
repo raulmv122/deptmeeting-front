@@ -24,7 +24,7 @@ export class CrearCitaComponent {
   guardarCita() {
     const empleadoIdSeleccionado = this.nuevaCita.empleado;
     if (empleadoIdSeleccionado) {
-      console.log(empleadoIdSeleccionado)
+      console.log(this.nuevaCita.fecha)
       this.citaServicio.crearCita(this.nuevaCita, empleadoIdSeleccionado).subscribe(
         response => {
           console.log("Cita guardada exitosamente", response);

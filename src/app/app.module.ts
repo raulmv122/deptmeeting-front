@@ -10,6 +10,7 @@ import { ActualizarEmpleadoComponent } from './actualizar-empleado/actualizar-em
 import { HomePageComponent } from './home-page/home-page.component';
 import { ListarCitasComponent } from './listar-citas/listar-citas.component';
 import { CrearCitaComponent } from './crear-cita/crear-cita.component';
+import { EditarCitaComponent } from './editar-cita/editar-cita.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { CrearCitaComponent } from './crear-cita/crear-cita.component';
     HomePageComponent,
     ListarCitasComponent,
     CrearCitaComponent,
+    EditarCitaComponent,
     
     
   ],
