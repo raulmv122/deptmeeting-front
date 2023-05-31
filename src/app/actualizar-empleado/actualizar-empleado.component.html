@@ -1,0 +1,52 @@
+<div class="col-md-6 offset-md-3">
+  <br>
+  <br>
+  <h3 class="text-center">Edición de empleado</h3>
+  <form (ngSubmit)="onSubmit()" #empleadoForm="ngForm">
+    <div class="form-group">
+      <label>Nombre:</label>
+      <input type="text" class="form-control" id="nombre" [(ngModel)]="empleado.nombre" name="nombre" required
+        minlength="4" maxlength="10" placeholder="Ingrese su nombre" #nombre="ngModel">
+      <div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+        <div>Digite su nombre, por favor.</div>
+        <div>El nombre debe tener al menos 4 caracteres.</div>
+        <div>El nombre debe tener como máximo 10 caracteres.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Primer Apellido:</label>
+      <input type="text" class="form-control" id="apellido" [(ngModel)]="empleado.apellido" name="apellido" required
+        minlength="4" maxlength="10" placeholder="Ingrese su apellido" #apellido="ngModel">
+      <div class="alert alert-danger" *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)">
+        <div>Digite su apellido, por favor.</div>
+        <div>El apellido debe tener al menos 4 caracteres.</div>
+        <div>El apellido debe tener como máximo 10 caracteres.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Email:</label>
+      <input type="email" class="form-control" id="email" [(ngModel)]="empleado.email" name="email"
+        pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" required
+        placeholder="Ingrese su email" #email="ngModel">
+      <div class="alert alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
+        <div>Digite su email, por favor.</div>
+        <div>Por favor, ingrese un email válido en el formato siguiente: user100@gmail.com.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Rol:</label>
+      <input type="text" class="form-control" id="rol" [(ngModel)]="empleado.rol" name="rol" required
+        placeholder="Ingrese su rol" #rol="ngModel">
+      <div class="alert alert-danger" *ngIf="rol.invalid && (rol.dirty || rol.touched)">
+        <div>Digite su rol, por favor.</div>
+      </div>
+    </div>
+
+    <br>
+    <div class="text-center">
+      <button class="btn btn-success" [disabled]="!empleadoForm.form.valid">Guardar</button>
+    </div>
+  </form>
+</div>

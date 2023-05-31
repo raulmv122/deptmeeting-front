@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lista de Citas</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <br>
+  <br>
+  <br>
+
+  <div class="col-md-6 offset-md-3 text-center">
+    <h2>Lista de Citas</h2>
+    <br>
+    
+    <button id="new-quote-btn" class="btn btn-primary" style="position: absolute; top: 10px; left: 10px;" (click)="crearCita()">Crear nueva cita</button>
+
+    <table class="table table-striped" id="rounded-table">
+      <thead class="custom-thead">
+        <tr>
+          <th>Fecha</th>
+          <th>Hora</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Actualizar</th>
+          <th>Borrar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cita of citas">
+          <td>{{cita.fecha}}</td>
+          <td>{{cita.hora}}</td>
+          <td>{{cita.empleado.nombre}}</td>
+          <td>{{cita.empleado.apellido}}</td>
+          <td>
+            <button class="btn btn-primary">Actualizar</button>
+          </td>
+          <td>
+            <button class="btn btn-danger">Borrar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
