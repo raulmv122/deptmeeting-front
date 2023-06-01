@@ -10,7 +10,7 @@
     <h2>Editar Cita</h2>
     <br>
     
-    <form (ngSubmit)="actualizarCita()">
+    <form (ngSubmit)="guardarCitaEditada()">
       <div class="form-group">
         <label for="fecha">Fecha:</label>
         <input type="date" class="form-control" id="fecha" name="fecha" [(ngModel)]="cita.fecha" required>
@@ -27,15 +27,7 @@
           <option value="11:30">11:30</option>
         </select>
       </div>
-      
-      <div class="form-group">
-        <label for="empleado">Empleado:</label>
-        <select class="form-control" id="empleado" name="empleado" [(ngModel)]="cita.empleado" required>
-          <option value="">Seleccionar empleado</option>
-          <option *ngFor="let empleado of empleados" [value]="empleado.id">{{ empleado.nombre }}</option>
-        </select>
-      </div>
-      
+    
       <button type="submit" class="btn btn-primary">Actualizar Cita</button>
     </form>
   </div>

@@ -29,6 +29,7 @@ export class ListarCitasComponent {
   }
 
   updateCita(id:number){
+    console.log("ID de la cita a actualizar:", id);
     this.router.navigate(['actualizar-cita',id]);
   }
 

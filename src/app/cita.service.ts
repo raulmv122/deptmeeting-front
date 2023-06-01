@@ -9,6 +9,7 @@ import { Empleado } from "./clases/empleado";
   providedIn: 'root'
 })
 export class CitaService {
+  
   private baseURL = "http://localhost:8080/api/v1/citas";
 
   constructor(private httpClient : HttpClient) { }
@@ -18,13 +19,16 @@ export class CitaService {
   }
 
   crearCita(cita: Cita, idEmpleado: any): Observable<Object> {
-    
-
     return this.httpClient.post(`${this.baseURL}/${idEmpleado}`, cita);
+  }
 
-        
-      
+  actualizarCita(id: number, cita: Cita): Observable<Object> {
+    return this.httpClient.put(`${this.baseURL}/${id}`, cita);
   }
   
-  
+  obtenerCitaPorId(id: number): Observable<Cita> {
+    return this.httpClient.get<Cita>(`${this.baseURL}/${id}`);
+  }
+
+
 }

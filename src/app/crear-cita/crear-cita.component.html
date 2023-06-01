@@ -33,7 +33,6 @@
       <div class="form-group">
         <label for="empleado">Empleado:</label>
         <select class="form-control" id="empleado" name="empleado" [(ngModel)]="nuevaCita.empleado">
-          <option value="">Seleccionar empleado</option>
           <option *ngFor="let empleado of empleados" [value]="empleado.id">{{ empleado.nombre }}</option>
         </select>
       </div>
