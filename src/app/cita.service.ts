@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
+import { Observable, catchError } from "rxjs";
 import { Cita } from "./clases/cita";
 import { Empleado } from "./clases/empleado";
 
@@ -30,5 +30,12 @@ export class CitaService {
     return this.httpClient.get<Cita>(`${this.baseURL}/${id}`);
   }
 
+  eliminarCita(id: number): Observable<Object> {
+    return this.httpClient.delete(`${this.baseURL}/${id}`).pipe(
+    );
+  }
+
+  
+    
 
 }
