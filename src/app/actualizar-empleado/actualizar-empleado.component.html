@@ -8,7 +8,7 @@
       <input type="text" class="form-control" id="nombre" [(ngModel)]="empleado.nombre" name="nombre" required
         minlength="4" maxlength="10" placeholder="Ingrese su nombre" #nombre="ngModel">
       <div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
-        <div>Digite su nombre, por favor.</div>
+        <div>No deje este campo vacío.</div>
         <div>El nombre debe tener al menos 4 caracteres.</div>
         <div>El nombre debe tener como máximo 10 caracteres.</div>
       </div>
@@ -18,7 +18,7 @@
       <input type="text" class="form-control" id="apellido" [(ngModel)]="empleado.apellido" name="apellido" required
         minlength="4" maxlength="10" placeholder="Ingrese su apellido" #apellido="ngModel">
       <div class="alert alert-danger" *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)">
-        <div>Digite su apellido, por favor.</div>
+        <div>No deje este campo vacío.</div>
         <div>El apellido debe tener al menos 4 caracteres.</div>
         <div>El apellido debe tener como máximo 10 caracteres.</div>
       </div>
@@ -30,19 +30,20 @@
         pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" required
         placeholder="Ingrese su email" #email="ngModel">
       <div class="alert alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
-        <div>Digite su email, por favor.</div>
-        <div>Por favor, ingrese un email válido en el formato siguiente: user100@gmail.com.</div>
+        <div>Escriba su email, por favor.</div>
       </div>
     </div>
 
     <div class="form-group">
       <label>Rol:</label>
-      <input type="text" class="form-control" id="rol" [(ngModel)]="empleado.rol" name="rol" required
-        placeholder="Ingrese su rol" #rol="ngModel">
-      <div class="alert alert-danger" *ngIf="rol.invalid && (rol.dirty || rol.touched)">
-        <div>Digite su rol, por favor.</div>
-      </div>
+      <select class="form-control" id="rol" [(ngModel)]="empleado.rol" name="rol" required>
+        <option value="" disabled selected>Seleccione su rol</option>
+        <option value="administrador">Administrador</option>
+        <option value="empleado">Empleado</option>
+        <option value="cliente">Management</option>
+      </select>
     </div>
+    
 
     <br>
     <div class="text-center">

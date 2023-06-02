@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CalendarModule } from 'primeng/calendar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +13,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { ListarCitasComponent } from './listar-citas/listar-citas.component';
 import { CrearCitaComponent } from './crear-cita/crear-cita.component';
 import { EditarCitaComponent } from './editar-cita/editar-cita.component';
+import { CalendarioComponent } from './calendario/calendario.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +24,7 @@ import { EditarCitaComponent } from './editar-cita/editar-cita.component';
     ListarCitasComponent,
     CrearCitaComponent,
     EditarCitaComponent,
+    CalendarioComponent,
     
     
   ],
@@ -28,7 +32,9 @@ import { EditarCitaComponent } from './editar-cita/editar-cita.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    CalendarModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

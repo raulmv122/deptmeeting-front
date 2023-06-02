@@ -18,7 +18,6 @@
     <table class="table table-striped" id="rounded-table">
       <thead class="custom-thead">
         <tr>
-          <th>Id</th>
           <th>Fecha</th>
           <th>Hora</th>
           <th>Nombre</th>
@@ -29,7 +28,6 @@
       </thead>
       <tbody>
         <tr *ngFor="let cita of citas">
-          <td>{{cita.id}}</td>
           <td>{{cita.fecha}}</td>
           <td>{{cita.hora}}</td>
           <td>{{cita.empleado.nombre}}</td>
