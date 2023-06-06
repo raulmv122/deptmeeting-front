@@ -9,7 +9,8 @@ import { CitaService } from '../cita.service';
   styleUrls: ['./editar-cita.component.css']
 })
 export class EditarCitaComponent implements OnInit {
-  cita: Cita = new Cita(); 
+  cita: Cita = new Cita();
+  errorExistenciaCita: string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -18,12 +19,11 @@ export class EditarCitaComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    const citaId = this.route.snapshot.params['id']; 
+    const citaId = this.route.snapshot.params['id'];
 
     this.citaService.obtenerCitaPorId(citaId).subscribe(
       (cita: Cita) => {
         this.cita = cita;
-        
       },
       error => {
         console.log('Error al cargar la cita:', error);
@@ -40,6 +40,11 @@ export class EditarCitaComponent implements OnInit {
         },
         error => {
           console.log('Error al actualizar la cita:', error);
+          if (error && error.status === 409) {
+            this.errorExistenciaCita = 'error';
+          } else {
+            this.errorExistenciaCita = 'Ya existe una cita programada para esa fecha y hora.';
+          }
         }
       );
     } else {

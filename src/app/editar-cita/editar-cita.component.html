@@ -28,6 +28,10 @@
         </select>
       </div>
     
+      <div class="alert alert-danger" *ngIf="errorExistenciaCita">
+        {{ errorExistenciaCita }}
+      </div>
+    
       <button type="submit" class="btn btn-primary">Actualizar Cita</button>
     </form>
   </div>

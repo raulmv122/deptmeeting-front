@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable, catchError } from "rxjs";
+import { Observable, catchError, throwError } from "rxjs";
 import { Cita } from "./clases/cita";
 import { Empleado } from "./clases/empleado";
 
@@ -19,12 +19,24 @@ export class CitaService {
   }
 
   crearCita(cita: Cita, idEmpleado: any): Observable<Object> {
-    return this.httpClient.post(`${this.baseURL}/${idEmpleado}`, cita);
+    return this.httpClient.post(`${this.baseURL}/${idEmpleado}`, cita).pipe(
+      catchError((error: any) => {
+        console.error('Error al crear la cita:', error);
+        return throwError('Ocurrió un error al crear la cita.');
+      })
+    );
   }
+  
 
   actualizarCita(id: number, cita: Cita): Observable<Object> {
-    return this.httpClient.put(`${this.baseURL}/${id}`, cita);
+    return this.httpClient.put(`${this.baseURL}/${id}`, cita)
+      .pipe(
+        catchError(error => {
+          throw new Error("Error al actualizar la cita");
+        })
+      );
   }
+  
   
   obtenerCitaPorId(id: number): Observable<Cita> {
     return this.httpClient.get<Cita>(`${this.baseURL}/${id}`);

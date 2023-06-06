@@ -14,6 +14,7 @@ export class CrearCitaComponent {
 
   empleados: Empleado[];
   nuevaCita: Cita = new Cita();
+  errorCrearCita: string = '';
 
   constructor(private citaServicio: CitaService, private router: Router, private empleadoServicio: EmpleadoService) { }
 
@@ -32,6 +33,11 @@ export class CrearCitaComponent {
         },
         error => {
           console.error("Error al guardar la cita", error);
+          if (error === 'error.') {
+            this.errorCrearCita = error;
+          } else {
+            this.errorCrearCita = 'El empleado ya tiene una cita programada en esa fecha y hora.';
+          }
         }
       );
     } else {

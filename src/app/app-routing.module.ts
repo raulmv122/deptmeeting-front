@@ -6,7 +6,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { ListarCitasComponent } from './listar-citas/listar-citas.component';
 import { CrearCitaComponent } from './crear-cita/crear-cita.component';
 import { EditarCitaComponent } from './editar-cita/editar-cita.component';
-import { Calendar } from 'primeng/calendar';
 
 const routes: Routes = [
   {path : 'empleados',component:ListaEmpleadosComponent},
