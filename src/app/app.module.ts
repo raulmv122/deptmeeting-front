@@ -13,7 +13,6 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { ListarCitasComponent } from './listar-citas/listar-citas.component';
 import { CrearCitaComponent } from './crear-cita/crear-cita.component';
 import { EditarCitaComponent } from './editar-cita/editar-cita.component';
-import { CalendarioComponent } from './calendario/calendario.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +23,6 @@ import { CalendarioComponent } from './calendario/calendario.component';
     ListarCitasComponent,
     CrearCitaComponent,
     EditarCitaComponent,
-    CalendarioComponent,
     
     
   ],

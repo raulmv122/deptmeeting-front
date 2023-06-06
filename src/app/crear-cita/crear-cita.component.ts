@@ -12,10 +12,10 @@ import { Cita } from '../clases/cita';
 })
 export class CrearCitaComponent {
 
-  empleados:Empleado[];
-  nuevaCita:Cita = new Cita();
+  empleados: Empleado[];
+  nuevaCita: Cita = new Cita();
 
-  constructor(private citaServicio:CitaService, private router:Router, private empleadoServicio:EmpleadoService) { }
+  constructor(private citaServicio: CitaService, private router: Router, private empleadoServicio: EmpleadoService) { }
 
   ngOnInit(): void {
     this.obtenerEmpleados();
@@ -24,7 +24,7 @@ export class CrearCitaComponent {
   guardarCita() {
     const empleadoIdSeleccionado = this.nuevaCita.empleado;
     if (empleadoIdSeleccionado) {
-      console.log(this.nuevaCita.fecha)
+      console.log(this.nuevaCita.fecha);
       this.citaServicio.crearCita(this.nuevaCita, empleadoIdSeleccionado).subscribe(
         response => {
           console.log("Cita guardada exitosamente", response);
@@ -38,18 +38,10 @@ export class CrearCitaComponent {
       console.error("Debe seleccionar un empleado");
     }
   }
-  
-  
-  
-  
-  
 
-
-  private obtenerEmpleados(){
-    this.empleadoServicio.obtenerListaDeEmpleados().subscribe(dato =>{
+  private obtenerEmpleados() {
+    this.empleadoServicio.obtenerListaDeEmpleados().subscribe(dato => {
       this.empleados = dato;
     });
   }
-
-
 }
