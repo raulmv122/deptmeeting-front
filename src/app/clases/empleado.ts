@@ -8,4 +8,5 @@ export class Empleado {
     email: string;
     rol: string;
     citas: Cita[];
+    loggeado: boolean;
 }
