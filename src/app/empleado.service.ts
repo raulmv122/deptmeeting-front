@@ -7,6 +7,9 @@ import { Empleado } from './clases/empleado';
   providedIn: 'root'
 })
 export class EmpleadoService {
+  static comprobarSiHayEmpleadoLoggeado() {
+    throw new Error('Method not implemented.');
+  }
 
   private baseURL = "http://localhost:8080/api/v1/empleados";
 
@@ -31,4 +34,14 @@ export class EmpleadoService {
   eliminarEmpleado(id:number): Observable<Object>{
     return this.httpClient.delete(`${this.baseURL}/${id}`);
   }
+
+  comprobarSiHayEmpleadoLoggeado():Observable<boolean>{
+    return this.httpClient.get<boolean>(`${this.baseURL}/administrador/loggeado`);
+  }
+
+  empleadosDesloggeados(): Observable<Empleado[]> {
+    return this.httpClient.get<Empleado[]>(`${this.baseURL}/desloggeado`);
+  }
+  
+
 }
